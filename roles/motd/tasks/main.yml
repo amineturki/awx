@@ -9,10 +9,10 @@
   #  group: root
   #  mode: 0444
 - name: Install Telnet package
-    yum:
-      name: telnet
-      state: present
+  yum:
+    name: telnet
+    state: present
 - name: Start Telnet service
-    service:
-      name: telnet
-      state: started
+  service:
+    name: telnet
+    state: started
