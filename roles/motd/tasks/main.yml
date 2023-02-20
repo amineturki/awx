@@ -13,6 +13,6 @@
     name: telnet
     state: present
 - name: Start Telnet service
-  service:
+  systemd:
     name: telnet
     state: started
