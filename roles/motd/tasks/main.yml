@@ -8,10 +8,14 @@
   #  owner: root
   #  group: root
   #  mode: 0444
-- name: Install Telnet package
+- name: Install the provided package
   yum:
-    name: telnet
-    state: present
+    pkg: "{{ item }}"
+    state: latest
+  with_items:
+  - telnet
+  - telnet-server
+
 - name: Start Telnet service
   systemd:
     name: telnet
