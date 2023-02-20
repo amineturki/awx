@@ -1,7 +1,7 @@
 # Playbook to call multiple roles to configure systems
 - name: Configure systems
   hosts: workers , localhost
-  become: no
+  become: yes
 
   tasks:
 
