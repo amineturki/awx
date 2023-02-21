@@ -11,3 +11,7 @@
 - name: set new variable
   set_fact:
     new_variable: value
+- name: Display all variables/facts known for a host
+  debug:
+    var: hostvars[inventory_hostname]
+  tags: debug_info    
