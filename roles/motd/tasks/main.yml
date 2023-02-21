@@ -11,6 +11,8 @@
 - name: set new variable
   set_fact:
     new_variable: value
+    cacheable: yes
+
 - name: Display all variables/facts known for a host
   debug:
     var: hostvars[inventory_hostname]
