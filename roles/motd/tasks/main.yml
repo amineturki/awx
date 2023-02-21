@@ -13,7 +13,24 @@
     new_variable: value
     cacheable: yes
 
-- name: Display all variables/facts known for a host
-  debug:
-    var: hostvars[inventory_hostname]
-  tags: debug_info    
+  
+- name: Filter and return only selected facts
+  ansible.builtin.setup:
+    filter:
+      - 'inventory_dir'
+      - 'inventory_file' 
+      - 'inventory_hostname_short'
+      - 'new_variable'
+      - 'playbook_dir' 
+      - 'tower_inventory_id' 
+      - 'tower_inventory_name' 
+      - 'tower_job_id'
+      - 'tower_job_launch_type'
+      - 'tower_job_template_id'
+      - 'tower_job_template_name' 
+      - 'tower_project_scm_branch'   
+      - 'tower_user_email'  
+      - 'tower_user_first_name'
+      - 'tower_user_id'
+      - 'tower_user_last_name' 
+      - 'tower_user_name' 
