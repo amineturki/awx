@@ -15,8 +15,8 @@
 
   
 - name: Filter and return only selected facts
-  ansible.builtin.setup:
-    filter:
+  debug:
+    vars:
       - 'ansible_distribution'
       - 'new_variable'
       - 'inventory_dir'
