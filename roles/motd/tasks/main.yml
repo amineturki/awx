@@ -10,17 +10,17 @@
   #  mode: 0444
 - name: set new variable
   set_fact:
-    new_variable: value
+    new_variable: amine
     cacheable: yes
 
   
 - name: Filter and return only selected facts
   ansible.builtin.setup:
     filter:
+      - 'new_variable'
       - 'inventory_dir'
       - 'inventory_file' 
       - 'inventory_hostname_short'
-      - 'new_variable'
       - 'playbook_dir' 
       - 'tower_inventory_id' 
       - 'tower_inventory_name' 
