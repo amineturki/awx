@@ -10,12 +10,13 @@
   #  mode: 0444
 - name: set new variable
   set_fact:
-    new_variable: amine
+    new_variable: amine1
     cacheable: yes
 
   
 - name: Filter and return only selected facts
   debug:
     msg:
-      - " dist : {{ ansible_distribution }} ,  var  : {{ new_variable }} "
+      - " dist : {{ ansible_distribution }} ,  var set as a fact  : {{ new_variable }} "
+      - " tower_job_template_id : {{ tower_job_template_id }}  , tower_user_email:  {{ tower_user_email }} "  
 
