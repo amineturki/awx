@@ -8,15 +8,6 @@
   #  owner: root
   #  group: root
   #  mode: 0444
-- name: Install the provided package
-  yum:
-    pkg: "{{ item }}"
-    state: latest
-  with_items:
-  - telnet
-  - telnet-server
-
-- name: Start Telnet service
-  systemd:
-    name: telnet
-    state: started
+- name: set new variable
+  set_fact:
+    new_variable: value
