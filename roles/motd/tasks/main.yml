@@ -45,7 +45,7 @@
 - name: Write report to file
   copy:
     content: "{{ report }}"
-    dest: "~/report/report1.txt"
+    dest: "~/report1.txt"
 
  
 
