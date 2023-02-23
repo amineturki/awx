@@ -21,14 +21,12 @@
 
 - name: Filter and store facts
   set_fact:
-    filtered_facts: "{{ ansible_facts | json_query(query) }}"
-  vars:
-    query: "{
-      hostname: ansible_hostname,
-      os: ansible_distribution,
-      cpu_count: ansible_processor_count,
-      memory_mb: ansible_memory_mb.real.total
-    }"
+    filtered_facts: {
+      "hostname": "{{ ansible_hostname }}",
+      "os": "{{ ansible_distribution }}",
+      "cpu_count": "{{ ansible_processor_count }}",
+      "memory_mb": "{{ ansible_memory_mb['real']['total'] }}"
+    }
 
 - name: Generate report
   set_fact:
