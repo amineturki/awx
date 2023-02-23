@@ -10,7 +10,7 @@
   #  mode: 0444
 - name: set new variable
   set_fact:
-    new_variable: amine1
+    new_variable: awx_var_1
     cacheable: yes
 
   
