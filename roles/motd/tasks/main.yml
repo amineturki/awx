@@ -46,6 +46,7 @@
     dest: "~/ansible/report1.txt"
 
 - name: Fetch report from remote machine
+  become: yes
   fetch:
     src: "~/ansible/report1.txt"
     dest: "/root/report/"
