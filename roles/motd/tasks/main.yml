@@ -13,38 +13,37 @@
     new_variable: awx_var_1
     cacheable: yes
 
-  
 - name: Filter and return only selected facts
   debug:
     msg:
       - " dist : {{ ansible_distribution }} ,  var set as a fact  : {{ new_variable }} "
       - " tower_job_template_id : {{ tower_job_template_id }}  , tower_user_email:  {{ tower_user_email }} "  
- 
+
 - name: Filter and store facts
-      set_fact:
-        filtered_facts: "{{ ansible_facts | json_query(query) }}"
-      vars:
-        query: "{
-          hostname: ansible_hostname,
-          os: ansible_distribution,
-          cpu_count: ansible_processor_count,
-          memory_mb: ansible_memory_mb.real.total
-          
-        }"
+  set_fact:
+    filtered_facts: "{{ ansible_facts | json_query(query) }}"
+  vars:
+    query: "{
+      hostname: ansible_hostname,
+      os: ansible_distribution,
+      cpu_count: ansible_processor_count,
+      memory_mb: ansible_memory_mb.real.total
+    }"
 
 - name: Generate report
-      set_fact:
-        report: |
-          Facts for {{ inventory_hostname }}:
-          var set as a fact  : {{ new_variable }}
-          Hostname: {{ filtered_facts.hostname }}
-          Operating System: {{ filtered_facts.os }}
-          CPU Count: {{ filtered_facts.cpu_count }}
-          Memory: {{ filtered_facts.memory_mb }} MB
-          
+  set_fact:
+    report: |
+      Facts for {{ inventory_hostname }}:
+      var set as a fact  : {{ new_variable }}
+      Hostname: {{ filtered_facts.hostname }}
+      Operating System: {{ filtered_facts.os }}
+      CPU Count: {{ filtered_facts.cpu_count }}
+      Memory: {{ filtered_facts.memory_mb }} MB
+
 - name: Write report to file
-      copy:
-        content: "{{ report }}"
-        dest: "~/report/report1.txt"
+  copy:
+    content: "{{ report }}"
+    dest: "~/report/report1.txt"
+
  
 
