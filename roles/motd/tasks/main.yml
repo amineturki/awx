@@ -50,8 +50,8 @@
   fetch:
     src: "~/ansible/report1.txt"
     dest: "~/report/"
-    flat: yes
-    fail_on_missing: yes
+    #flat: yes
+    #fail_on_missing: yes
 
 
  
