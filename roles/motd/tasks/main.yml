@@ -21,12 +21,11 @@
 
 - name: Filter and store facts
   set_fact:
-    filtered_facts: {
-      "hostname": "{{ ansible_hostname }}",
-      "os": "{{ ansible_distribution }}",
-      "cpu_count": "{{ ansible_processor_count }}",
-      "memory_mb": "{{ ansible_memory_mb['real']['total'] }}"
-    }
+    filtered_facts:
+      hostname: "{{ ansible_hostname }}"
+      os: "{{ ansible_distribution }}"
+      cpu_count: "{{ ansible_processor_count }}"
+      memory_mb: "{{ ansible_memory_mb['real']['total'] }}"
 
 - name: Generate report
   set_fact:
@@ -41,18 +40,18 @@
 - name: Where am i 
   shell: pwd
 
-    
 - name: Write report to file
   copy:
     content: "{{ report }}"
     dest: "~/ansible/report1.txt"
-    
+
 - name: Fetch report from remote machine
-  fetch:    
-    src: "~/ansible/report1.txt"    
-    dest: "~/report/report1.txt"    
-    flat: yes    
-    fail_on_missing: yes   
+  fetch:
+    src: "~/ansible/report1.txt"
+    dest: "~/report/report1.txt"
+    flat: yes
+    fail_on_missing: yes
+
 
  
 
