@@ -49,7 +49,7 @@
   become: yes
   fetch:
     src: "~/ansible/report1.txt"
-    dest: "/home/awx/report/"
+    dest: "~/report/"
     flat: yes
     fail_on_missing: yes
 
