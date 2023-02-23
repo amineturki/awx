@@ -47,8 +47,8 @@
     content: "{{ report }}"
     dest: "~/ansible/report1.txt"
     
- - name: Fetch report from remote machine
-   fetch:    
+- name: Fetch report from remote machine
+  fetch:    
     src: "~/ansible/report1.txt"    
     dest: "~/report/report1.txt"    
     flat: yes    
