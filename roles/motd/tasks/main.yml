@@ -38,6 +38,10 @@
       CPU Count: {{ filtered_facts.cpu_count }}
       Memory: {{ filtered_facts.memory_mb }} MB
 
+- name: Where am i 
+  shell: pwd
+
+    
 - name: Write report to file
   copy:
     content: "{{ report }}"
