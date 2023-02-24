@@ -51,7 +51,7 @@
     dest: "~/report"
     flat: yes
     fail_on_missing: yes
-  shell: pwd  
+
     
 
 
