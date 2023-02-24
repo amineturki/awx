@@ -46,12 +46,13 @@
     dest: "~/ansible/report1.txt"
 
 - name: Fetch report from remote machine
-  become: yes
   fetch:
     src: "~/ansible/report1.txt"
-    dest: "~/var/lib/awx/projects/_42__projet_test"
+    dest: "~/report"
     flat: yes
     fail_on_missing: yes
+  shell: pwd  
+    
 
 
  
