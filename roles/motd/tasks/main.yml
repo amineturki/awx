@@ -48,7 +48,7 @@
 - name: Fetch report from remote machine
   become: yes
   fetch:
-    src: "~/ansible1/report1.txt"
+    src: "~/ansible/report1.txt"
     dest: "~/report1/report1.txt"
     flat: yes
     fail_on_missing: yes
