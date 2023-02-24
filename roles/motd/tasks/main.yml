@@ -43,13 +43,13 @@
 - name: Write report to file
   copy:
     content: "{{ report }}"
-    dest: "~/report1.txt"
+    dest: "~/ansible/report1.txt"
 
 - name: Fetch report from remote machine
   become: yes
   fetch:
-    src: "~/report1.txt"
-    dest: "~/"
+    src: "~/ansible/report1.txt"
+    dest: "~/report/report1.txt"
     flat: yes
     fail_on_missing: yes
 
