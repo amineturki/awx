@@ -48,7 +48,7 @@
 - name: Fetch report from remote machine
   fetch:
     src: "~/ansible/report2.txt"
-    dest: "/root/report"
+    dest: "~/report"
     flat: yes
     fail_on_missing: yes
 
