@@ -38,10 +38,8 @@
 
 - name: Fetch report from remote machine
   fetch:
-    #src: "~/ansible/report2.txt"
-    #dest: "/root/report/"
-    src: "/etc/hosts"
-    dest: "/tmp/hosts-{{ inventory_hostname }}/"
+    src: "~/ansible/report2.txt"
+    dest: "/root/"
     flat: yes
     fail_on_missing: yes
 
