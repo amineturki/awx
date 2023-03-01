@@ -41,7 +41,7 @@
     #src: "~/ansible/report2.txt"
     #dest: "/root/report/"
     src: "/etc/hosts"
-    dest: "/tmp/hosts-{{ inventory_hostname }}"
+    dest: "/tmp/hosts-{{ inventory_hostname }}/"
     flat: yes
     fail_on_missing: yes
 
