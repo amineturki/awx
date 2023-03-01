@@ -38,7 +38,7 @@
 
 - name: Fetch report from remote machine
   fetch:
-    src: "~/ansible/report2.txt"
+    src: "~/ansible"
     dest: "/var/lib/awx/projects/_10__project_github_awx/report"
     flat: yes
     fail_on_missing: yes
