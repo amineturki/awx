@@ -1,2 +1,4 @@
 ---
 # vars file for /etc/ansible/roles/motd
+your_telnet_host : 10.0.0.1
+your_telnet_port : 80
