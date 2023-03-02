@@ -55,6 +55,7 @@
     backup: yes
 
 - name: Fetch report from remote machine
+  become: yes
   fetch:
     src: "~/ansible/report_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
     dest: "/home/user1/"
@@ -63,8 +64,8 @@
 
 - name: Copy report file using scp
   become: yes
-    shell: >
-      scp root@worker1:~/ansible/{{ file_name }} {{ dest_path }}
+  shell: >
+    scp root@worker1:~/ansible/{{ file_name }} {{ dest_path }}
 
     
 
