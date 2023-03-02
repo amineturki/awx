@@ -64,7 +64,7 @@
 - name: Copy report file using scp
   become: yes
     shell: >
-      scp user@remote_host:~/ansible/{{ file_name }} {{ dest_path }}
+      scp root@worker1:~/ansible/{{ file_name }} {{ dest_path }}
 
     
 
