@@ -51,11 +51,12 @@
 - name: Write report to file
   copy:
     content: "{{ report }}"
-    dest: "~/ansible/report2.txt"
+    dest: "~/ansible/report_{{ ansible_date_time.iso8601_basic }}.txt"
+    backup: yes
 
 - name: Fetch report from remote machine
   fetch:
-    src: "~/ansible/report2.txt"
+    src: "~/ansible/report_{{ ansible_date_time.iso8601_basic }}.txt"
     dest: "/home/user1/"
     flat: yes
     fail_on_missing: yes
