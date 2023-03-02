@@ -53,6 +53,7 @@
     content: "{{ report }}"
         dest: "~/ansible/report_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
 
+
     backup: yes
 
 - name: Fetch report from remote machine
