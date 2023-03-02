@@ -1,5 +1,5 @@
 ---
-- name: set new variable
+- name: Set new variable
   set_fact:
     new_variable: awx_var_2
     cacheable: yes
@@ -21,7 +21,6 @@
   set_fact:
     telnet_output: "{{ telnet_output.stdout_lines[-1] }}"    
     telnet_output_connection: "{{ telnet_output.stdout_lines[1] }}"     
-
     cacheable: yes
     
 - name: Filter and store facts
@@ -45,7 +44,7 @@
       CPU Count: {{ filtered_facts.cpu_count }}
       Memory: {{ filtered_facts.memory_mb }} MB
 
-- name: Where am i 
+- name: Where am I
   shell: pwd
 
 - name: Write report to file
@@ -71,10 +70,3 @@
   run_once: true
   become: true
   become_user: root
-
-
-    
-
-
- 
-
