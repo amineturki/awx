@@ -35,7 +35,7 @@
     report: |
       Facts for {{ inventory_hostname }}:
       var set as a fact  : {{ new_variable }}
-      output of telnet  : {{ telnet_output }}
+      output of telnet  : {{ telnet_output.stdout_lines[-1] }}
       Hostname: {{ filtered_facts.hostname }}
       Operating System: {{ filtered_facts.os }}
       CPU Count: {{ filtered_facts.cpu_count }}
