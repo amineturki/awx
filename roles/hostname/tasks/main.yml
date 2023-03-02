@@ -1,14 +1,23 @@
----
-# tasks file for /etc/ansible/roles/hostname
-- name: Set Hostname
-  become: yes
-  hostname:
-    name: "{{ inventory_hostname }}"
-
-- name: edit /etc/hosts
-  become: yes
-  lineinfile:
-    dest: /etc/hosts
-    line: "{{ ansible_facts.default_ipv4.address }} {{ ansible_facts.hostname }}.{{ ansible_facts.fqdn }}"
-    regexp: "^127.0.0.1"
+- name: Check if Telnet is installed
+  stat:
+    path: /usr/bin/telnet
+  register: telnet_installed
+  ignore_errors: true
+  
+- name: Install Telnet if it's not installed
+  yum:
+    name: telnet
     state: present
+  when: telnet_installed.stat.exists == false
+  
+- name: Check if Curl is installed
+  stat:
+    path: /usr/bin/curl
+  register: curl_installed
+  ignore_errors: true
+  
+- name: Install Curl if it's not installed
+  yum:
+    name: curl
+    state: present
+  when: curl_installed.stat.exists == false
