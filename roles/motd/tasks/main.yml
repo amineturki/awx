@@ -20,8 +20,7 @@
 - name: Store Telnet output in fact
   set_fact:
     telnet_output: "{{ telnet_output.stdout_lines[-1] }}"    
-    telnet_output1: "{{ telnet_output.stdout_lines[0] }}"
-    telnet_output2: "{{ telnet_output.stdout_lines[1] }}"     
+    telnet_output_connection: "{{ telnet_output.stdout_lines[1] }}"     
 
     cacheable: yes
     
@@ -40,7 +39,7 @@
     report: |
       Facts for {{ inventory_hostname }}:
       var set as a fact  : {{ new_variable }}
-      output of telnet 1  : {{ telnet_output }} ------------  {{ telnet_output2 }}  ------------  {{ telnet_output1 }}
+      telnet connection status  : {{ telnet_output_connection }}
       Hostname: {{ filtered_facts.hostname }}
       Operating System: {{ filtered_facts.os }}
       CPU Count: {{ filtered_facts.cpu_count }}
