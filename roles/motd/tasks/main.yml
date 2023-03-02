@@ -9,7 +9,19 @@
     msg:
       - " dist : {{ ansible_distribution }} ,  var set as a fact  : {{ new_variable }} "
       - " tower_job_template_id : {{ tower_job_template_id }}  , tower_user_email:  {{ tower_user_email }} "  
+ 
+- name: Execute Telnet command and store output in fact
+  become: true
+  shell: |
+    output=$(echo -e "open your_telnet_host your_telnet_port\nwait 1\nquit" | telnet)
+    echo "Telnet output: $output"
+  register: telnet_output
 
+- name: Store Telnet output in fact
+  set_fact:
+    telnet_output: "{{ telnet_output.stdout_lines[-1] }}"     
+    cacheable: yes
+    
 - name: Filter and store facts
   set_fact:
     filtered_facts:
@@ -23,6 +35,7 @@
     report: |
       Facts for {{ inventory_hostname }}:
       var set as a fact  : {{ new_variable }}
+      output of telnet  : {{ telnet_output }}
       Hostname: {{ filtered_facts.hostname }}
       Operating System: {{ filtered_facts.os }}
       CPU Count: {{ filtered_facts.cpu_count }}
