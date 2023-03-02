@@ -57,7 +57,7 @@
 
 - name: Fetch report from remote machine
   fetch:
-    src: "~/ansible/report_{{ ansible_date_time.iso8601_basic }}.txt"
+    src: "~/ansible/report_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
     dest: "/home/user1/"
     flat: yes
     fail_on_missing: yes
