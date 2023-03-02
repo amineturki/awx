@@ -64,12 +64,14 @@
 
 - name: Copy report from remote machine
   copy:
-    src: "/tmp/"
-    dest: "/root/ansible/"
-  delegate_to: worker1
+    src: "/root/ansible/report_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
+    dest: "/root/report/"
+  remote_src: true   
+  delegate_to: <remote_machine>
   run_once: true
   become: true
-  become_user: root
+  become_user: <remote_user>
+
 
     
 
