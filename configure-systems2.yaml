@@ -8,7 +8,7 @@
 - name: Call Roles 2
   hosts: workers 
   roles:
-   #- hostname
+   - hostname
    #- firewalld
    #- ntp-config
-   - motd
+   #- motd
