@@ -13,7 +13,7 @@
 - name: Execute Telnet command and store output in fact
   become: true
   shell: |
-    output=$(echo -e "open your_telnet_host your_telnet_port\nwait 1\nquit" | telnet)
+    output=$(echo -e "open {{ your_telnet_host }} {{ your_telnet_port }} \nwait 1\nquit" | telnet)
     echo "Telnet output: $output"
   register: telnet_output
 
@@ -35,7 +35,7 @@
     report: |
       Facts for {{ inventory_hostname }}:
       var set as a fact  : {{ new_variable }}
-      output of telnet  : {{ telnet_output.stdout_lines[-1] }}
+      output of telnet  : {{ telnet_output }}
       Hostname: {{ filtered_facts.hostname }}
       Operating System: {{ filtered_facts.os }}
       CPU Count: {{ filtered_facts.cpu_count }}
