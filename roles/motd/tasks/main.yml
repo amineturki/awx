@@ -57,8 +57,10 @@
   become: yes
   fetch:
     src: "/root/ansible/report_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
-    dest: "/root/reports/"
-    flat: yes
+    dest: "/root/report/"
+    #flat: yes
     fail_on_missing: yes
+    
+
 
 
