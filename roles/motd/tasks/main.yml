@@ -53,6 +53,13 @@
     dest: "/root/ansible/report_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
     backup: yes
 
+- name: Create a directory and give it all permissions
+  hosts: localhost
+  file:
+    path: /root/report
+    state: directory
+    mode: "0777"
+
 - name: Fetch report from remote machine
   become: yes
   fetch:
