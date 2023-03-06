@@ -5,5 +5,5 @@
     flat: yes
     fail_on_missing: yes
   delegate_to: localhost
-  connection: local
+  #connection: local
 
