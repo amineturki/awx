@@ -1,9 +1,18 @@
-- name: Fetch report from remote machinee
+- name: Fetch report from remote machine
   fetch:
     src: "/root/ansible/report_worker1_2023-03-06_01-52.txt"
-    dest: "/root/report/"
+    dest: "/tmp/fetched_files"
     flat: yes
     fail_on_missing: yes
-  #delegate_to: localhost
-  #connection: local
+  delegate_to: localhost
+  connection: local
+  vars:
+    ansible_fetch_directory: /tmp/fetched_files
+  register: fetch_result
 
+- name: Copy file to local machine
+  copy:
+    src: "{{ fetch_result['dest'] }}/{{ fetch_result['changed_files'][0] }}"
+    dest: "/root/report"
+  delegate_to: localhost
+  run_once: true
