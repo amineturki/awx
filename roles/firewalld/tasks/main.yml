@@ -3,7 +3,8 @@
 - name: Fetch report from remote machine
   become: yes
   fetch:
-    src: "/root/ansible/report_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
-    dest: "/root/reports/"
+   # src: "/root/ansible/report_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
+    src: "/root/ansible/report_worker1_2023-03-06_01-36.txt"
+    dest: "/root/report/"
     flat: yes
     fail_on_missing: yes
