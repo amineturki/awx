@@ -1,27 +1,9 @@
 ---
-# tasks file for /etc/ansible/roles/firewalld
-- name: Install firewalld if not Installed
-  become: yes
-  yum:
-    name: firewalld
-    state: present
 
-- name: Start and Enabled firewalld
+- name: Fetch report from remote machine
   become: yes
-  service:
-    name: firewalld
-    state: started
-    enabled: yes
-
-- name: Open a port in firewalld
-  become: yes
-  firewalld:
-    port: 443/tcp
-    permanent: yes
-    state: enabled
-
-- name: Restart firewalld
-  become: yes
-  service: 
-    name: firewalld
-    state: restarted
+  fetch:
+    src: "/root/ansible/report_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
+    dest: "/root/reports/"
+    flat: yes
+    fail_on_missing: yes
