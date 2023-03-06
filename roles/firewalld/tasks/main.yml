@@ -6,5 +6,9 @@
     mode: "0777"
   delegate_to: localhost
   connection: local
+  vars:
+    ansible_fetch_directory: /tmp/fetched_files
+  debug:
+    var: ansible_fetch_result
   
 
