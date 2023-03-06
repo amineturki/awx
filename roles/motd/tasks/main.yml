@@ -60,6 +60,7 @@
     state: directory
     mode: "0777"
   delegate_to: localhost
+  connection: local
   
 
 
