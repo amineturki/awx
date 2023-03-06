@@ -1,14 +1,12 @@
----
-- name: Create a directory and give it all permissions
-  file:
-    path: /root/reports
-    state: directory
-    mode: "0777"
+- name: Fetch report from remote machine
+  fetch:
+    src: "/root/ansible/report_worker1_2023-03-06_01-52.txt"
+    dest: "/root/report/"
+    flat: yes
+    fail_on_missing: yes
   delegate_to: localhost
   connection: local
   vars:
     ansible_fetch_directory: /tmp/fetched_files
   debug:
     var: ansible_fetch_result
-  
-
