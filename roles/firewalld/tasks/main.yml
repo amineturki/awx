@@ -1,5 +1,12 @@
 ---
-
+- name: Create a directory and give it all permissions
+  file:
+    path: /root/reports
+    state: directory
+    mode: "0777"
+  delegate_to: localhost
+  connection: local
+  
 - name: Fetch report from remote machine
   become: yes
   fetch:
