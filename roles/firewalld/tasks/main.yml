@@ -1,4 +1,4 @@
-- name: Fetch report from remote machine
+- name: Fetch report from remote machinee
   fetch:
     src: "/root/ansible/report_worker1_2023-03-06_01-52.txt"
     dest: "/root/report/"
