@@ -54,7 +54,7 @@
     backup: yes
 
 - name: Create a directory and give it all permissions
-  hosts: localhost
+ # hosts: localhost
   file:
     path: /root/report
     state: directory
