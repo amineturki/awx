@@ -8,3 +8,4 @@
     dest: "/root/report/"
     flat: yes
     fail_on_missing: yes
+    delegate_to: workers
